@@ -36,30 +36,14 @@ const useStyles = makeStyles((theme) => ({
 export const RandomQuiz = () => {
   const classes = useStyles();
   const { topic } = useParams();
-  console.log(topic);
+//   console.log(topic);
   const API_URL = "http://127.0.0.1:8000/quiz/r/" + topic;
   const [dataState] = ConnectApi(API_URL);
   const a = dataState.data.flatMap((q) => q.answer);
   const ac = a.length;
-  console.log(a);
+//   console.log(a);
   const [answer, setAnswer] = useState({});
   const [answerCheck, setAnswerCheck] = useState();
-
-  const handleSelection = (e) => {
-    setAnswer({ ...answer, [e.target.value]: e.target.checked });
-  };
-
-  // creating a function to make sure even only one option is selected in a question, we have the length
-  // of the original object. So say there was 3 options, with this function createInitalAnswers we have, we
-  // make sure we have an initial object of length three and set to false
-  const createInitalAnswers = () => {
-    let z = a.flatMap((obj) => obj.id);
-    let object = {};
-    for (let x = 0; x < ac; x++) {
-      object[z[x]] = false;
-    }
-    return object;
-  };
 
   useEffect(() => {
     // ...length === 0 since we want to make sure that our object is not touched before and only then we want
@@ -70,13 +54,31 @@ export const RandomQuiz = () => {
   }, [answer]);
   console.log(answer);
 
+  const handleSelection = (e) => {
+    setAnswer({ ...answer, [e.target.value]: e.target.checked });
+  };
+
+  // creating a function to make sure even only one option is selected in a question, we have the length
+  // of the original object. So say there was 3 options, with this function createInitalAnswers we have, we
+  // make sure we have an initial object of length three all to false initially
+  const createInitalAnswers = () => {
+    let z = a.flatMap((obj) => obj.id);
+    let object = {};
+    for (let x = 0; x < ac; x++) {
+      object[z[x]] = false;
+    }
+    return object;
+  };
+
+
+
   const checkAnswer = (e) => {
     e.preventDefault();
 
     let n = a.map((obj) => obj.is_right);
     let y = { ...n };
-    console.log(a);
-    console.log(y);
+    // console.log(a);
+    // console.log(y);
 
     function arrayEquals(o, p) {
       return (
@@ -90,10 +92,10 @@ export const RandomQuiz = () => {
     let o = Object.values(y);
     let p = Object.values(answer);
     if (arrayEquals(o, p)) {
-      console.log("correcet");
+    //   console.log("correcet");
       setAnswerCheck(true);
     } else {
-      console.log("incorrecet");
+    //   console.log("incorrecet");
       setAnswerCheck(false);
     }
   };
@@ -135,7 +137,7 @@ export const RandomQuiz = () => {
                 {title}
               </Typography>
               {answer.map(({ answer_text, id }) => (
-                <RadioGroup>
+                <RadioGroup >
                   <FormControlLabel
                     control={
                       <Checkbox

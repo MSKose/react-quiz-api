@@ -11,7 +11,7 @@ import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
-import CssBaseline from "@material-ui/core/CssBaseline";
+// import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
@@ -57,8 +57,7 @@ export const QuizSelect = () => {
     const classes = useStyles();
     const API_URL = 'http://127.0.0.1:8000/quiz/';
     const [dataState] = CollectApi(API_URL);
-    
-    console.log(dataState);
+  
 
   return (
     <>

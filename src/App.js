@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<QuizSelect/>} /> 
-          <Route path="/r/:topic" element={<RandomQuiz/>} exact />
+          <Route path="/r/:topic" element={<RandomQuiz/>} />
         </Routes>
       </BrowserRouter>
   );
