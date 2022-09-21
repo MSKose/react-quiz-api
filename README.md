@@ -11,7 +11,7 @@
 
 This is a quiz api repo for making the Front-End of the api service [here](https://github.com/MSKose/django-drf-quiz-api).
 
-![screenshot](https://user-images.githubusercontent.com/63124871/191489165-3ad28dd9-8727-46c9-b73a-22c8cdd66082.mp4)
+![screenshot](./react-quiz-api.gif)
 
 <h2 id="stack">Stack & Tools</h2>
 
